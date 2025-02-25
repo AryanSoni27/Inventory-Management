@@ -128,6 +128,41 @@ class InventoryItemTile extends StatelessWidget {
               ),
               SizedBox(width: 10),
               Text('\$${item.price.toStringAsFixed(2)}'),
+              // Added delete button here
+              IconButton(
+                icon: Icon(Icons.delete, color: Colors.red),
+                onPressed: () {
+                  // Reuse the same confirmation dialog as in Dismissible
+                  showDialog(
+                    context: context,
+                    builder: (ctx) => AlertDialog(
+                      title: Text('Confirm Delete'),
+                      content: Text('Do you want to remove ${item.name} from inventory?'),
+                      actions: [
+                        TextButton(
+                          child: Text('No'),
+                          onPressed: () {
+                            Navigator.of(ctx).pop();
+                          },
+                        ),
+                        TextButton(
+                          child: Text('Yes'),
+                          onPressed: () {
+                            inventoryProvider.deleteItem(item.id);
+                            Navigator.of(ctx).pop();
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text('${item.name} removed from inventory'),
+                                duration: Duration(seconds: 2),
+                              ),
+                            );
+                          },
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              ),
             ],
           ),
           onTap: () {
