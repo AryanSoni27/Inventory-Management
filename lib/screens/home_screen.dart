@@ -7,6 +7,8 @@ import 'low_stock_screen.dart';
 import 'statistics_screen.dart';
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -54,6 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
         crossAxisCount: 2,
         padding: EdgeInsets.all(16.0),
         children: [
+          //View Inventory Field
           _buildMenuItem(
             context,
             'View Inventory',
@@ -66,6 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
+          //Add Item Field
           _buildMenuItem(
             context,
             'Add Item',
@@ -78,6 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
+          //Low Stock Field
           _buildMenuItem(
             context,
             'Low Stock',
@@ -90,6 +95,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
+          //Statistic Field
           _buildMenuItem(
             context,
             'Statistics',
