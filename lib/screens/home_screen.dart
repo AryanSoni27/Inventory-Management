@@ -206,8 +206,8 @@ class InventorySearchDelegate extends SearchDelegate<String> {
     return searchResults.isEmpty
         ? Center(child: Text('No results found'))
         : ListView.builder(
-      itemCount: searchResults.length,
-      itemBuilder: (context, index) {
+        itemCount: searchResults.length,
+        itemBuilder: (context, index) {
         final item = searchResults[index];
         return ListTile(
           title: Text(item.name),
